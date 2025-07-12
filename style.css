@@ -1,0 +1,178 @@
+@font-face {
+    font-family: "Nina";
+    src: url(typos/NINNA/NinnaTrial-Bold.otf);
+}
+
+@font-face {
+    font-family: "Swiss";
+    src: url("typos/SwissPosters Trial/SwissPosters Trial VAR/SwissPosters Trial VAR WOFF2/Swissposters Trial VAR-VF.ttf.woff2") format("woff2-variations");
+}
+
+@font-face {
+    font-family: "inte";
+    src: url(typos/Integral-CF-Font-Family/Fontspring-DEMO-integralcf-extrabold.otf);
+}
+
+@keyframes Slide {
+    from {
+        transform: translateX(100%);
+      }
+    
+      to {
+        transform: translateX(0%);
+      }    
+}    
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    display: grid;
+    grid: repeat(10, 1fr) /repeat(11, 1fr);
+    width: 90%;
+    margin: 0 auto;
+    height: 100vh;
+    position: relative;
+}
+
+.bg {
+  animation:slide 7s ease-in-out infinite alternate;
+  background-image: linear-gradient(-45deg, rgb(0, 0, 0) 50%, rgb(30, 30, 30) 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:8s;
+}
+
+.bg3 {
+  animation-duration:9s;
+}
+
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
+}
+
+
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+img {
+    max-width: 300px;
+    width: 250px;
+    grid-column: 1/12;
+    grid-row: 2/8;
+    justify-self: center;
+    align-self: center;
+    animation: 1.5s linear running Slide;}
+
+p {
+    font-size: 14px;
+    font-family: "Nina" Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 7vw;
+    font-family: "inte", Arial, Helvetica, sans-serif;
+    letter-spacing: 0.5rem;
+
+
+}
+
+div {
+    color: white;
+    grid-column: 1/10;
+    grid-row: 7/10;
+    display: flex;
+    flex-direction: column-reverse;
+    line-height: rem;
+
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 9px;
+    font-family: "inte", Arial, Helvetica, sans-serif;
+    letter-spacing: 0.2rem;
+    position: relative;
+
+
+
+}
+
+nav {
+    grid-column: 1/12;
+    grid-row: 1/1;
+    display: flex;
+    ;
+    padding: 3rem;
+    justify-content: space-between;
+
+}
+
+nav>a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    /* Distance entre le texte et la ligne */
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease-in-out;
+}
+
+nav>a:hover:nth-child(2):after {
+    width: 99%;
+}
+nav>a:hover:nth-child(3):after {
+    width: 99%;
+}
+
+span {
+    font-family: "Nina", Arial, Helvetica, sans-serif;
+    font-style: oblique;
+    margin-left: 0.5rem;
+
+}
+
+
+@media screen and (min-width: 800px) {
+    a {
+        font-size: 1.5vw;
+    }
+
+    p {
+        font-size: 2vw;
+    }
+}
+
+@media screen and (730px <= width ) {
+    img{
+        grid-column: 8/12;
+        grid-row: 2/10; 
+        justify-self: center;
+        align-self: center;
+        width: 400px;
+    }
+}
