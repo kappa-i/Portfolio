@@ -32,8 +32,6 @@
 
 body {
     background-color: black;
-    display: grid;
-    grid: repeat(10, 1fr) /repeat(11, 1fr);
     width: 90%;
     margin: 0 auto;
     height: 100vh;
@@ -79,11 +77,13 @@ body::-webkit-scrollbar {
 img {
     max-width: 300px;
     width: 250px;
-    grid-column: 1/12;
-    grid-row: 2/8;
     justify-self: center;
     align-self: center;
-    animation: 1.5s linear running Slide;}
+    animation: 1.5s linear running Slide;
+    position: absolute;
+    left: 70%;
+}
+
 
 p {
     font-size: 2vw;
@@ -98,20 +98,18 @@ h1 {
 
 }
 
-div {
+section {
     color: white;
-    grid-column: 1/10;
-    grid-row: 7/10;
     display: flex;
     flex-direction: column-reverse;
-    line-height: rem;
+    margin-top: 10%;
 
 }
 
 a {
     text-decoration: none;
     color: white;
-    font-size: 1,5vw;
+    font-size: 1.5vw;
     font-family: "inte", Arial, Helvetica, sans-serif;
     letter-spacing: 0.2rem;
     position: relative;
@@ -121,8 +119,6 @@ a {
 }
 
 nav {
-    grid-column: 1/12;
-    grid-row: 1/1;
     display: flex;
     ;
     padding: 3rem;
@@ -156,12 +152,49 @@ span {
 
 }
 
-@media screen and (730px <= width ) {
-    img{
-        grid-column: 8/12;
-        grid-row: 2/10; 
-        justify-self: center;
-        align-self: center;
-        width: 400px;
+nav label{
+    margin: 10px 0 0 0;
+}
+
+.burger {
+    display: none;       /* caché sur desktop */
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+}
+
+#menu-toggle {
+    display: none;
     }
+
+
+@media (max-width: 991px) {
+    img{
+        position: relative;
+        left: 0;
+        display: flex;
+    }
+
+    nav {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    /* Masquer les liens par défaut */
+    nav>a.hover-target {
+        display: none;
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    /* Afficher le burger */
+    .burger {
+        display: block;
+    }
+
+    /* Toggle : afficher les liens quand burger coché */
+    #menu-toggle:checked ~ a.hover-target {
+        display: block;
+    }
+
 }
