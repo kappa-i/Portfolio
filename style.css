@@ -77,8 +77,6 @@ body::-webkit-scrollbar {
 img {
     max-width: 300px;
     width: 250px;
-    justify-self: center;
-    align-self: center;
     animation: 1.5s linear running Slide;
     position: absolute;
     left: 70%;
@@ -173,7 +171,8 @@ nav label{
         position: relative;
         left: 0;
         display: flex;
-        justify-content: center;
+        justify-self: center;
+        align-self: center;
     }
 
     nav {
