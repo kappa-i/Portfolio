@@ -86,12 +86,12 @@ img {
 
 
 p {
-    font-size: 2vw;
+    font-size: 30px;
     font-family: "Nina" Arial, Helvetica, sans-serif;
 }
 
 h1 {
-    font-size: 7vw;
+    font-size: 70px;
     font-family: "inte", Arial, Helvetica, sans-serif;
     letter-spacing: 0.5rem;
 
@@ -109,7 +109,7 @@ section {
 a {
     text-decoration: none;
     color: white;
-    font-size: 1.5vw;
+    font-size: 20px;
     font-family: "inte", Arial, Helvetica, sans-serif;
     letter-spacing: 0.2rem;
     position: relative;
@@ -173,6 +173,8 @@ nav label{
         position: relative;
         left: 0;
         display: flex;
+        align-items: center;
+        justify-items: center;
     }
 
     nav {
@@ -195,6 +197,19 @@ nav label{
     /* Toggle : afficher les liens quand burger coché */
     #menu-toggle:checked ~ a.hover-target {
         display: block;
+    }
+
+    h1{
+        font-size: 7vw;
+
+    }
+
+    p{
+        font-size: 5vw;
+    }
+
+    a{
+        font-size: 3vw;
     }
 
 }
