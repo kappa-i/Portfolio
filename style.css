@@ -124,25 +124,6 @@ nav {
 
 }
 
-nav>a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -10px;
-    /* Distance entre le texte et la ligne */
-    width: 0;
-    height: 2px;
-    background-color: white;
-    transition: width 0.3s ease-in-out;
-}
-
-nav>a:hover:nth-child(2):after {
-    width: 99%;
-}
-nav>a:hover:nth-child(3):after {
-    width: 99%;
-}
-
 span {
     font-family: "Nina", Arial, Helvetica, sans-serif;
     font-style: oblique;
