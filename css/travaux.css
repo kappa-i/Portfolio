@@ -1,0 +1,346 @@
+/* ================================================================
+   PAGE TRAVAUX - STYLES DÉDIÉS
+   Style moderne et épuré avec typographie système
+   ================================================================ */
+
+/* ========================================
+   TYPOGRAPHIE SPÉCIFIQUE TRAVAUX
+   ======================================== */
+.travaux-section h1 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: clamp(3rem, 10vw, 5rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin-bottom: 5rem;
+    text-align: center;
+    background: linear-gradient(135deg, #ffffff 0%, #888888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.travaux-section h1 span {
+    font-family: inherit;
+    font-style: italic;
+    font-weight: 300;
+}
+
+/* ========================================
+   LAYOUT PRINCIPAL
+   ======================================== */
+.travaux-section {
+    padding: 4rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.projet-liste {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
+/* ========================================
+   PROJET ITEM
+   ======================================== */
+.projet-item {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 3rem;
+    align-items: start;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.projet-item:nth-child(1) { animation-delay: 0.1s; }
+.projet-item:nth-child(2) { animation-delay: 0.25s; }
+.projet-item:nth-child(3) { animation-delay: 0.4s; }
+.projet-item:nth-child(4) { animation-delay: 0.55s; }
+.projet-item:nth-child(5) { animation-delay: 0.7s; }
+
+.projet-item:last-child {
+    border-bottom: none;
+}
+
+/* Alternance gauche/droite */
+.projet-item:nth-child(even) {
+    grid-template-columns: 1fr 400px;
+}
+
+.projet-item:nth-child(even) img {
+    order: 2;
+}
+
+.projet-item:nth-child(even) .projet-info {
+    order: 1;
+}
+
+/* ========================================
+   IMAGE PROJET
+   ======================================== */
+.projet-item img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.projet-item:hover img {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(255, 255, 255, 0.1);
+}
+
+/* Overlay effet au hover */
+.projet-item img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.projet-item:hover img::before {
+    opacity: 1;
+}
+
+/* ========================================
+   INFO PROJET
+   ======================================== */
+.projet-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.projet-info h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.projet-info p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 1.5rem;
+}
+
+/* ========================================
+   LIENS PROJET
+   ======================================== */
+.projet-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.projet-links a {
+    display: inline-flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding: 0.6rem 1.2rem;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.projet-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.projet-links a:hover {
+    border-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
+}
+
+.projet-links a:hover::before {
+    left: 0;
+}
+
+/* Premier lien (démo) plus visible */
+.projet-links a:first-child {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.projet-links a:first-child:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* ========================================
+   TECHNOLOGIES
+   ======================================== */
+.tech {
+    display: inline-block;
+    font-family: "Courier New", monospace;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.05em;
+    padding: 0.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 0.5rem;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   RESPONSIVE - TABLET (< 991px)
+   ======================================== */
+@media (max-width: 991px) {
+    .travaux-section {
+        padding: 3rem 0;
+    }
+
+    .travaux-section h1 {
+        margin-bottom: 3rem;
+    }
+
+    .projet-liste {
+        gap: 4rem;
+    }
+
+    .projet-item,
+    .projet-item:nth-child(even) {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .projet-item img,
+    .projet-item:nth-child(even) img {
+        order: 1;
+        height: 240px;
+    }
+
+    .projet-item .projet-info,
+    .projet-item:nth-child(even) .projet-info {
+        order: 2;
+    }
+
+    .projet-info h2 {
+        font-size: 1.6rem;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE (< 600px)
+   ======================================== */
+@media (max-width: 600px) {
+    .travaux-section {
+        padding: 2rem 0;
+    }
+
+    .travaux-section h1 {
+        margin-bottom: 2rem;
+        font-size: 2.5rem;
+    }
+
+    .projet-liste {
+        gap: 3rem;
+    }
+
+    .projet-item {
+        padding-bottom: 2.5rem;
+    }
+
+    .projet-item img {
+        height: 200px;
+        border-radius: 8px;
+    }
+
+    .projet-info h2 {
+        font-size: 1.4rem;
+    }
+
+    .projet-info p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .projet-links {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .projet-links a {
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .tech {
+        font-size: 0.8rem;
+    }
+}
+
+/* ========================================
+   HOVER EFFECTS AVANCÉS
+   ======================================== */
+@media (hover: hover) {
+    .projet-item {
+        transition: transform 0.3s ease;
+    }
+
+    .projet-item:hover {
+        transform: translateX(5px);
+    }
+
+    .projet-item:nth-child(even):hover {
+        transform: translateX(-5px);
+    }
+}
+
+/* ========================================
+   DARK MODE ENHANCEMENT
+   ======================================== */
+@media (prefers-color-scheme: dark) {
+    .projet-item img {
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+    }
+
+    .projet-links a {
+        backdrop-filter: blur(10px);
+    }
+}
