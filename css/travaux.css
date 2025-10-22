@@ -1,34 +1,44 @@
 /* ========================================
-   GRID ASYMÉTRIQUE "BAZAR ORGANISÉ"
+   GRID SIMPLE AVEC COLONNES EXPLICITES
    ======================================== */
 .projet-liste {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: 150px;
     gap: 1.5rem;
 }
 
-    .titre-travaux {
-        display: flex;
-        justify-content: center;
-    }
+.titre-travaux {
+    display: flex;
+    justify-content: center;
+}
 
 /* ========================================
-   PLACEMENT ASYMÉTRIQUE DES CARDS
+   PLACEMENT EXPLICITE DES CARDS
    ======================================== */
+.projet-item:nth-child(1) { 
+    grid-column: 1 / 9;
+    grid-row: 1 / 5;
+}
 
-.projet-item:nth-child(1) { grid-column: span 8; grid-row: span 4; }
-.projet-item:nth-child(2) { grid-column: span 4; grid-row: span 4; }
-.projet-item:nth-child(3) { grid-column: span 3; grid-row: span 2; }
-.projet-item:nth-child(4) { grid-column: span 3; grid-row: span 2; }
-.projet-item:nth-child(5) { grid-column: span 6; grid-row: span 2; }
-.projet-item:nth-child(6) { grid-column: span 4; grid-row: span 5; }
-.projet-item:nth-child(7) { grid-column: span 5; grid-row: span 3; }
-.projet-item:nth-child(8) { grid-column: span 3; grid-row: span 2; }
-.projet-item:nth-child(9) { grid-column: span 5; grid-row: span 2; }
-.projet-item:nth-child(10) { grid-column: span 3; grid-row: span 3; }
-.projet-item:nth-child(11) { grid-column: span 5; grid-row: span 3; }
-.projet-item:nth-child(12) { grid-column: span 7; grid-row: span 3; }
+.projet-item:nth-child(2) { 
+    grid-column: 9 / 13;
+    grid-row: 1 / 5;
+}
+
+.projet-item:nth-child(3) { 
+    grid-column: 1 / 4;
+    grid-row: 5 / 7;
+}
+
+.projet-item:nth-child(4) { 
+    grid-column: 4 / 7;
+    grid-row: 5 / 7;
+}
+
+.projet-item:nth-child(5) { 
+    grid-column: 7 / 13;
+    grid-row: 5 / 7;
+}
 
 /* ========================================
    CARD PROJET
@@ -47,13 +57,6 @@
 .projet-item:nth-child(3) { animation-delay: 0.2s; }
 .projet-item:nth-child(4) { animation-delay: 0.25s; }
 .projet-item:nth-child(5) { animation-delay: 0.3s; }
-.projet-item:nth-child(6) { animation-delay: 0.35s; }
-.projet-item:nth-child(7) { animation-delay: 0.4s; }
-.projet-item:nth-child(8) { animation-delay: 0.45s; }
-.projet-item:nth-child(9) { animation-delay: 0.5s; }
-.projet-item:nth-child(10) { animation-delay: 0.55s; }
-.projet-item:nth-child(11) { animation-delay: 0.6s; }
-.projet-item:nth-child(12) { animation-delay: 0.65s; }
 
 /* ========================================
    IMAGE
@@ -116,7 +119,6 @@
 @media (max-width: 991px) {
     .projet-liste {
         grid-template-columns: repeat(6, 1fr);
-        grid-auto-rows: 130px;
         gap: 1rem;
     }
 
@@ -124,19 +126,30 @@
         margin-top: 2rem;
     }
 
-    /* Réorganisation en gardant l'asymétrie */
-    .projet-item:nth-child(1) { grid-column: span 6; grid-row: span 3; }
-    .projet-item:nth-child(2) { grid-column: span 3; grid-row: span 3; }
-    .projet-item:nth-child(3) { grid-column: span 3; grid-row: span 3; }
-    .projet-item:nth-child(4) { grid-column: span 4; grid-row: span 2; }
-    .projet-item:nth-child(5) { grid-column: span 2; grid-row: span 2; }
-    .projet-item:nth-child(6) { grid-column: span 3; grid-row: span 4; }
-    .projet-item:nth-child(7) { grid-column: span 3; grid-row: span 2; }
-    .projet-item:nth-child(8) { grid-column: span 6; grid-row: span 2; }
-    .projet-item:nth-child(9) { grid-column: span 4; grid-row: span 3; }
-    .projet-item:nth-child(10) { grid-column: span 2; grid-row: span 3; }
-    .projet-item:nth-child(11) { grid-column: span 3; grid-row: span 2; }
-    .projet-item:nth-child(12) { grid-column: span 3; grid-row: span 2; }
+    .projet-item:nth-child(1) { 
+        grid-column: 1 / 7;
+        grid-row: 1 / 4;
+    }
+
+    .projet-item:nth-child(2) { 
+        grid-column: 1 / 4;
+        grid-row: 4 / 7;
+    }
+
+    .projet-item:nth-child(3) { 
+        grid-column: 4 / 7;
+        grid-row: 4 / 7;
+    }
+
+    .projet-item:nth-child(4) { 
+        grid-column: 1 / 5;
+        grid-row: 7 / 9;
+    }
+
+    .projet-item:nth-child(5) { 
+        grid-column: 5 / 7;
+        grid-row: 7 / 9;
+    }
 }
 
 /* ========================================
@@ -146,8 +159,8 @@
     .titre-travaux {
         margin-top: 2rem;
         margin-left: 3rem;
-        
     }
+
     .travaux-section {
         padding: 2rem 0;
     }
@@ -159,26 +172,17 @@
 
     .projet-liste {
         grid-template-columns: 1fr;
-        grid-auto-rows: auto;
         gap: 1.5rem;
     }
 
-    /* En mobile, toutes les cards ont la même taille */
     .projet-item,
     .projet-item:nth-child(1),
     .projet-item:nth-child(2),
     .projet-item:nth-child(3),
     .projet-item:nth-child(4),
-    .projet-item:nth-child(5),
-    .projet-item:nth-child(6),
-    .projet-item:nth-child(7),
-    .projet-item:nth-child(8),
-    .projet-item:nth-child(9),
-    .projet-item:nth-child(10),
-    .projet-item:nth-child(11),
-    .projet-item:nth-child(12) {
-        grid-column: span 1;
-        grid-row: span 1;
+    .projet-item:nth-child(5) {
+        grid-column: 1 / 2;
+        grid-row: auto;
         height: 250px;
         min-height: 250px;
     }
