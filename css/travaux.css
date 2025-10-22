@@ -1,13 +1,17 @@
 /* ================================================================
-   PAGE TRAVAUX - STYLES DÉDIÉS
-   Style moderne et épuré avec typographie système
+   PAGE TRAVAUX - CSS DÉDIÉ
    ================================================================ */
 
 /* ========================================
-   TYPOGRAPHIE SPÉCIFIQUE TRAVAUX
+   SECTION TRAVAUX
    ======================================== */
+.travaux-section {
+    padding: 4rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .travaux-section h1 {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-size: clamp(3rem, 10vw, 5rem);
     font-weight: 900;
     letter-spacing: -0.02em;
@@ -17,6 +21,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    animation: fadeIn 1s ease-out;
 }
 
 .travaux-section h1 span {
@@ -26,14 +31,8 @@
 }
 
 /* ========================================
-   LAYOUT PRINCIPAL
+   LISTE DES PROJETS
    ======================================== */
-.travaux-section {
-    padding: 4rem 0;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 .projet-liste {
     display: flex;
     flex-direction: column;
@@ -41,7 +40,7 @@
 }
 
 /* ========================================
-   PROJET ITEM
+   ITEM PROJET
    ======================================== */
 .projet-item {
     display: grid;
@@ -87,29 +86,11 @@
     border-radius: 12px;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    position: relative;
 }
 
 .projet-item:hover img {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 20px 60px rgba(255, 255, 255, 0.1);
-}
-
-/* Overlay effet au hover */
-.projet-item img::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.projet-item:hover img::before {
-    opacity: 1;
 }
 
 /* ========================================
@@ -123,7 +104,6 @@
 }
 
 .projet-info h2 {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-size: clamp(1.5rem, 4vw, 2rem);
     font-weight: 700;
     letter-spacing: -0.01em;
@@ -133,7 +113,6 @@
 }
 
 .projet-info p {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-size: clamp(0.95rem, 2vw, 1.05rem);
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.75);
@@ -154,7 +133,6 @@
     align-items: center;
     color: white;
     text-decoration: none;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-size: 0.9rem;
     font-weight: 500;
     letter-spacing: 0.02em;
@@ -188,7 +166,6 @@
     left: 0;
 }
 
-/* Premier lien (démo) plus visible */
 .projet-links a:first-child {
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.5);
@@ -210,20 +187,6 @@
     padding: 0.5rem 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     margin-top: 0.5rem;
-}
-
-/* ========================================
-   ANIMATIONS
-   ======================================== */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* ========================================
@@ -316,7 +279,7 @@
 }
 
 /* ========================================
-   HOVER EFFECTS AVANCÉS
+   HOVER EFFECTS
    ======================================== */
 @media (hover: hover) {
     .projet-item {
@@ -333,7 +296,7 @@
 }
 
 /* ========================================
-   DARK MODE ENHANCEMENT
+   DARK MODE
    ======================================== */
 @media (prefers-color-scheme: dark) {
     .projet-item img {

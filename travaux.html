@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Découvrez les projets et réalisations web de Gabriel Cappai.">
     <title>Travaux - Gabriel's Portfolio</title>
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/travaux.css">
 </head>
 
@@ -16,11 +17,10 @@
     <div class="bg bg3"></div>
 
     <nav>
-        <a href="index.html">Gabriel Cappai.</a>
-        <input type="checkbox" id="menu-toggle" />
-        <label for="menu-toggle" class="burger">&#9776;</label>
-        <a href="travaux.html" class="hover-target active">Travaux.</a>
-        <a href="contact.html" class="hover-target">Contact.</a>
+        <a href="index.html" class="page">Gabriel Cappai.</a>
+        <div class="burger">☰</div>
+        <a href="travaux.html" class="page">Travaux.</a>
+        <a href="contact.html" class="page">A propos.</a>
     </nav>
 
     <section class="travaux-section">
@@ -30,15 +30,15 @@
             
             <!-- Projet 1 -->
             <article class="projet-item">
-                <img src="./img/projects/projet1.jpg" alt="Aperçu du projet E-commerce" loading="lazy">
+                <img src="/img/projets/CrewUp/Annonces.png" alt="Aperçu du projet E-commerce" loading="lazy">
                 <div class="projet-info">
-                    <h2>E-commerce Modern Shop</h2>
+                    <h2>Gestion d'événements sportifs</h2>
                     <p>Application de vente en ligne complète avec panier dynamique, système de filtres, gestion des produits et interface responsive. Intégration d'une API REST pour la gestion du catalogue.</p>
                     <div class="projet-links">
                         <a href="https://exemple.com/demo" target="_blank" rel="noopener">Voir la démo ↗</a>
                         <a href="https://github.com/username/repo" target="_blank" rel="noopener">Code source ↗</a>
                     </div>
-                    <span class="tech">React · CSS3 · API REST · LocalStorage</span>
+                    <span class="tech">PHP · SQL </span>
                 </div>
             </article>
 
@@ -70,24 +70,10 @@
                 </div>
             </article>
 
-            <!-- Template pour ajouter d'autres projets -->
-            <!--
-            <article class="projet-item">
-                <img src="./img/projects/projet4.jpg" alt="Description du projet" loading="lazy">
-                <div class="projet-info">
-                    <h2>Titre du projet</h2>
-                    <p>Description détaillée du projet, ses fonctionnalités principales et les défis techniques relevés.</p>
-                    <div class="projet-links">
-                        <a href="#" target="_blank" rel="noopener">Voir la démo ↗</a>
-                        <a href="#" target="_blank" rel="noopener">Code source ↗</a>
-                    </div>
-                    <span class="tech">Tech1 · Tech2 · Tech3</span>
-                </div>
-            </article>
-            -->
-
         </div>
     </section>
+
+    <script src="js/menu.js"></script>
 
 </body>
 

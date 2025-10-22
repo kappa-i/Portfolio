@@ -1,0 +1,14 @@
+/* ================================================================
+   GLOBAL - IMPORTE TOUS LES FICHIERS CSS
+   ================================================================ */
+@import url('./fonts.css');
+@import url('./reset.css');
+@import url('./scrollbar.css');
+@import url('./background.css');
+@import url('./typography.css');
+@import url('./navigation.css');
+@import url('./buttons.css');
+@import url('./home.css');
+@import url('./contact.css');
+@import url('./animations.css');
+@import url('./utilities.css');

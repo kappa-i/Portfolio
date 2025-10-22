@@ -1,0 +1,75 @@
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+a.page{
+    text-decoration: none;
+    padding: 2rem;
+    font-size: 1.5rem;
+    color: white;
+    margin-top: 1.5rem;
+}
+
+.burger {
+    padding: 2rem;
+    display: none;
+    cursor: pointer;
+}
+.burger:active {
+    color: rgb(142, 142, 142);
+}
+
+@media screen and (max-width: 900px) {
+    nav {
+        flex-direction: column; 
+        position: relative;
+        
+    }
+
+    .burger {
+        display: block;
+        width: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 2rem;
+    }
+
+    a.page {
+        display: none;
+        width: 100%;
+        padding: 1rem;
+        background-color: rgba(89, 89, 232, 0);
+        margin-top: 0.5rem;
+
+    }
+
+     a.page:first-of-type {
+        margin-top: 7rem; /* Marge seulement pour le premier lien */
+    }
+
+    a.page.mobile {
+        display: block;
+        animation: slideDown 0.4s ease forwards;
+
+    }
+}
