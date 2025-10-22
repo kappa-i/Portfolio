@@ -43,6 +43,8 @@ if (cube && shape3d) {
   let isDragging = false;
   let previousMouseX = 0;
   let previousMouseY = 0;
+  let previousTouchX = 0;
+  let previousTouchY = 0;
   let rotationX = 0;
   let rotationY = 0;
   let rotationZ = 0;
@@ -51,9 +53,9 @@ if (cube && shape3d) {
   // Animation continue
   function animateCube() {
     if (!isDragging) {
-      rotationX += 0.35;
-      rotationY += 0.35;
-      rotationZ += 0.35;
+      rotationX += 0.5;
+      rotationY += 0.5;
+      rotationZ += 0.5;
       cube.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg) rotateZ(${rotationZ}deg)`;
     }
     animationId = requestAnimationFrame(animateCube);
@@ -61,6 +63,7 @@ if (cube && shape3d) {
 
   animateCube();
 
+  // ÉVÉNEMENTS SOURIS (desktop)
   shape3d.addEventListener('mousedown', (e) => {
     isDragging = true;
     previousMouseX = e.clientX;
@@ -90,5 +93,37 @@ if (cube && shape3d) {
     }
   });
 
+  // ÉVÉNEMENTS TACTILES (mobile/iPhone)
+  shape3d.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    const touch = e.touches[0];
+    previousTouchX = touch.clientX;
+    previousTouchY = touch.clientY;
+    e.preventDefault(); // Empêche le scroll
+  }, { passive: false });
+
+  shape3d.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+
+    const touch = e.touches[0];
+    const deltaX = touch.clientX - previousTouchX;
+    const deltaY = touch.clientY - previousTouchY;
+
+    rotationY += deltaX * 0.5;
+    rotationX -= deltaY * 0.5;
+
+    cube.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg) rotateZ(${rotationZ}deg)`;
+
+    previousTouchX = touch.clientX;
+    previousTouchY = touch.clientY;
+    
+    e.preventDefault(); // Empêche le scroll
+  }, { passive: false });
+
+  shape3d.addEventListener('touchend', () => {
+    isDragging = false;
+  });
+
   shape3d.style.cursor = 'grab';
+  shape3d.style.touchAction = 'none'; // Améliore le support tactile
 }

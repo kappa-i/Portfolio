@@ -1,310 +1,182 @@
 /* ================================================================
-   PAGE TRAVAUX - GALERIE VERTICALE
+   PAGE TRAVAUX - MOSAÏQUE GRID
    ================================================================ */
 
 /* ========================================
    SECTION TRAVAUX
    ======================================== */
 .travaux-section {
-  padding: 4rem 0;
-  max-width: 1400px;
-  margin: 0 auto;
+    padding: 4rem 0;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-h1 {
-  font-size: clamp(3rem, 10vw, 5rem);
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  margin-bottom: 5rem;
-  text-align: center;
-  animation: fadeIn 1s ease-out;
-}
-
-.titre-travaux{
-    margin-top: 10rem;
+.travaux-section h1 {
+    font-size: clamp(3rem, 10vw, 5rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin-bottom: 4rem;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
 }
 
 .travaux-section h1 span {
-  font-family: inherit;
-  font-style: italic;
-  font-weight: 300;
+    font-family: inherit;
+    font-style: italic;
+    font-weight: 300;
 }
 
 /* ========================================
-   LISTE DES PROJETS - GALERIE
+   GRID MOSAÏQUE
    ======================================== */
 .projet-liste {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
 }
 
 /* ========================================
-   ITEM PROJET - PLEINE LARGEUR
+   CARD PROJET
    ======================================== */
 .projet-item {
-  position: relative;
-  width: 100%;
-  height: 500px;
-  overflow: hidden;
-  border-radius: 0;
-  opacity: 0;
-  animation: fadeInUp 0.8s ease-out forwards;
-  cursor: pointer;
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
 }
 
-.projet-item:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.projet-item:nth-child(2) {
-  animation-delay: 0.25s;
-}
-.projet-item:nth-child(3) {
-  animation-delay: 0.4s;
-}
-.projet-item:nth-child(4) {
-  animation-delay: 0.55s;
-}
-.projet-item:nth-child(5) {
-  animation-delay: 0.7s;
-}
+.projet-item:nth-child(1) { animation-delay: 0.1s; }
+.projet-item:nth-child(2) { animation-delay: 0.2s; }
+.projet-item:nth-child(3) { animation-delay: 0.3s; }
+.projet-item:nth-child(4) { animation-delay: 0.4s; }
+.projet-item:nth-child(5) { animation-delay: 0.5s; }
 
 /* ========================================
-   IMAGE PROJET - PLEINE LARGEUR
+   IMAGE
    ======================================== */
 .projet-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease, filter 0.6s ease;
-  filter: grayscale(30%) brightness(0.7);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease, filter 0.6s ease;
+    filter: grayscale(20%) brightness(0.8);
 }
 
 .projet-item:hover img {
-  transform: scale(1.05);
-  filter: grayscale(0%) brightness(0.4);
+    transform: scale(1.1);
+    filter: grayscale(0%) brightness(0.5);
 }
 
 /* ========================================
-   INFO PROJET - OVERLAY
+   OVERLAY & INFO
    ======================================== */
 .projet-info {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 3rem;
-  background: rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  transition: opacity 0.6s ease, background 0.6s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0);
+    opacity: 0;
+    transition: all 0.6s ease;
+    pointer-events: none;
 }
 
 .projet-item:hover .projet-info {
-  opacity: 1;
-  background: rgba(0, 0, 0, 0.7);
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.8);
 }
 
 .projet-info h2 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  color: #ffffff;
-  margin-bottom: 1.5rem;
-  transform: translateY(20px);
-  transition: transform 0.6s ease 0.1s;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    transform: translateY(20px);
+    transition: transform 0.6s ease 0.1s;
 }
 
 .projet-item:hover .projet-info h2 {
-  transform: translateY(0);
+    transform: translateY(0);
 }
 
-.projet-info p {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 2rem;
-  max-width: 700px;
-  transform: translateY(20px);
-  transition: transform 0.6s ease 0.2s;
-}
-
-.projet-item:hover .projet-info p {
-  transform: translateY(0);
-}
-
-/* ========================================
-   LIENS PROJET
-   ======================================== */
-.projet-links {
-  display: flex;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-  transform: translateY(20px);
-  transition: transform 0.6s ease 0.3s;
-}
-
-.projet-item:hover .projet-links {
-  transform: translateY(0);
-}
-
-.projet-links a {
-  display: inline-flex;
-  align-items: center;
-  color: white;
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  padding: 0.8rem 1.8rem;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 0;
-  transition: all 0.3s ease;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-}
-
-.projet-links a:hover {
-  background: white;
-  color: black;
-  border-color: white;
-  transform: translateY(-3px);
-}
-
-/* ========================================
-   TECHNOLOGIES
-   ======================================== */
+/* Cacher les autres éléments */
+.projet-info p,
+.projet-links,
 .tech {
-  display: inline-block;
-  font-family: "Fira Code", monospace;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.7);
-  letter-spacing: 0.1em;
-  padding: 0.5rem 0;
-  transform: translateY(20px);
-  transition: transform 0.6s ease 0.4s;
-}
-
-.projet-item:hover .tech {
-  transform: translateY(0);
+    display: none;
 }
 
 /* ========================================
    RESPONSIVE - TABLET (< 991px)
    ======================================== */
 @media (max-width: 991px) {
-  .travaux-section {
-    padding: 3rem 0;
-  }
+    .projet-liste {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
 
-  .travaux-section h1 {
-    margin-bottom: 3rem;
-  }
-
-  .projet-item {
-    height: 400px;
-  }
-
-  .projet-info {
-    padding: 2rem;
-  }
-
-  .projet-info h2 {
-    font-size: 2rem;
-  }
-
-  .projet-info p {
-    font-size: 1rem;
-  }
+    .projet-item {
+        height: 350px;
+    }
 }
 
 /* ========================================
    RESPONSIVE - MOBILE (< 600px)
    ======================================== */
 @media (max-width: 600px) {
-  .travaux-section {
-    padding: 2rem 0;
-  }
+    .travaux-section {
+        padding: 2rem 0;
+    }
 
-  .travaux-section h1 {
-    margin-bottom: 2rem;
-    font-size: 2.5rem;
-  }
+    .travaux-section h1 {
+        margin-bottom: 2rem;
+        font-size: 2.5rem;
+    }
 
-  .projet-liste {
-    gap: 1.5rem;
-  }
+    .projet-liste {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
 
-  .projet-item {
-    height: 350px;
-  }
+    .projet-item {
+        height: 300px;
+    }
 
-  .projet-info {
-    padding: 1.5rem;
-    /* Toujours visible sur mobile */
-    opacity: 1;
-    background: rgba(0, 0, 0, 0.6);
-  }
-
-  .projet-info h2,
-  .projet-info p,
-  .projet-links,
-  .tech {
-    transform: translateY(0);
-  }
-
-  .projet-info h2 {
-    font-size: 1.6rem;
-  }
-
-  .projet-info p {
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .projet-links {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  .projet-links a {
-    width: 100%;
-    justify-content: center;
-    padding: 0.7rem 1.2rem;
-  }
-
-  .tech {
-    font-size: 0.75rem;
-  }
+    .projet-info h2 {
+        font-size: 1.5rem;
+    }
 }
 
 /* ========================================
    ANIMATIONS
    ======================================== */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
