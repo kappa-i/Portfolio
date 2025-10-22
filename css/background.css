@@ -1,40 +1,36 @@
 /* ================================================================
-   ANIMATED BACKGROUND
+   ANIMATED BACKGROUND - VAGUES ORGANIQUES
    ================================================================ */
 .bg {
-    animation: slide 7s ease-in-out infinite alternate;
-    background-image: linear-gradient(-45deg, rgb(0, 0, 0) 50%, rgb(30, 30, 30) 50%);
-    bottom: 0;
-    left: -50%;
-    opacity: 0.5;
-    position: fixed;
-    right: -50%;
-    top: 0;
-    z-index: -1;
-    pointer-events: none;
-    will-change: transform;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
 }
 
-.bg2 {
-    animation-direction: alternate-reverse;
-    animation-duration: 8s;
+.bg::before,
+.bg::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 0, 222, 0.15) 0%,
+    transparent 50%
+  );
 }
 
-.bg3 {
-    animation-duration: 9s;
-}
-
-@keyframes slide {
-    0% {
-        transform: translateX(-25%);
-    }
-    100% {
-        transform: translateX(25%);
-    }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .bg {
-        animation: slide 7s ease-in-out infinite alternate;
-    }
+.bg::after {
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 255, 249, 0.15) 0%,
+    transparent 50%
+  );
 }

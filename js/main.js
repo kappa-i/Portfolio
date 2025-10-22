@@ -1,34 +1,94 @@
-const text = document.querySelector('.text'); // Sélectionner votre élément texte
+const h1 = document.querySelector('h1');
+const allLinks = document.querySelectorAll('a');
 
-text.addEventListener('mousemove', (e) => {
-  const rect = text.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
-  
-  const letters = text.querySelectorAll('span');
-  
-  letters.forEach(letter => {
-    const letterRect = letter.getBoundingClientRect();
-    const letterX = letterRect.left + letterRect.width / 2 - rect.left;
-    const letterY = letterRect.top + letterRect.height / 2 - rect.top;
+// Effet glitch PERMANENT sur h1
+if (h1) {
+  setInterval(() => {
+    const offsetX1 = Math.random() * 4 - 2;
+    const offsetY1 = Math.random() * 4 - 2;
+    const offsetX2 = Math.random() * 4 - 2;
+    const offsetY2 = Math.random() * 4 - 2;
     
-    const distance = Math.sqrt(Math.pow(x - letterX, 2) + Math.pow(y - letterY, 2));
-    const maxDistance = 100; // Rayon de la zone d'effet
-    
-    if (distance < maxDistance) {
-      const scale = 1 + (1 - distance / maxDistance) * 1.5; // Zoom jusqu'à 2.5x
-      letter.style.transform = `scale(${scale})`;
-      letter.style.zIndex = '10';
-    } else {
-      letter.style.transform = 'scale(1)';
-      letter.style.zIndex = '1';
+    h1.style.textShadow = `${offsetX1}px ${offsetY1}px #ff00de, ${offsetX2}px ${offsetY2}px #00fff9`;
+  }, 100);
+}
+
+// Effet glitch sur TOUS les liens (au survol uniquement)
+allLinks.forEach(link => {
+  let linkGlitchInterval;
+  
+  link.addEventListener('mouseenter', () => {
+    linkGlitchInterval = setInterval(() => {
+      const offsetX1 = Math.random() * 4 - 2;
+      const offsetY1 = Math.random() * 4 - 2;
+      const offsetX2 = Math.random() * 4 - 2;
+      const offsetY2 = Math.random() * 4 - 2;
+      
+      link.style.textShadow = `${offsetX1}px ${offsetY1}px #ff00de, ${offsetX2}px ${offsetY2}px #00fff9`;
+    }, 100);
+  });
+  
+  link.addEventListener('mouseleave', () => {
+    clearInterval(linkGlitchInterval);
+    link.style.textShadow = 'none';
+  });
+});
+
+//cube
+
+const cube = document.querySelector('.cube');
+const shape3d = document.querySelector('.shape-3d');
+
+if (cube && shape3d) {
+  let isDragging = false;
+  let previousMouseX = 0;
+  let previousMouseY = 0;
+  let rotationX = 0;
+  let rotationY = 0;
+  let rotationZ = 0;
+  let animationId;
+
+  // Animation continue
+  function animateCube() {
+    if (!isDragging) {
+      rotationX += 0.35;
+      rotationY += 0.35;
+      rotationZ += 0.35;
+      cube.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg) rotateZ(${rotationZ}deg)`;
+    }
+    animationId = requestAnimationFrame(animateCube);
+  }
+
+  animateCube();
+
+  shape3d.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    previousMouseX = e.clientX;
+    previousMouseY = e.clientY;
+    shape3d.style.cursor = 'grabbing';
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+
+    const deltaX = e.clientX - previousMouseX;
+    const deltaY = e.clientY - previousMouseY;
+
+    rotationY += deltaX * 0.5;
+    rotationX -= deltaY * 0.5;
+
+    cube.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg) rotateZ(${rotationZ}deg)`;
+
+    previousMouseX = e.clientX;
+    previousMouseY = e.clientY;
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (isDragging) {
+      isDragging = false;
+      shape3d.style.cursor = 'grab';
     }
   });
-});
 
-text.addEventListener('mouseleave', () => {
-  const letters = text.querySelectorAll('span');
-  letters.forEach(letter => {
-    letter.style.transform = 'scale(1)';
-  });
-});
+  shape3d.style.cursor = 'grab';
+}

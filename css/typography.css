@@ -2,40 +2,48 @@
    TYPOGRAPHY
    ================================================================ */
 h1 {
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
-    font-family: "inte", Arial, Helvetica, sans-serif;
-    letter-spacing: 0.5rem;
-    line-height: 1.2;
-    margin-bottom: 1rem;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-family: "Anton", Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
 }
 
 h2 {
-    font-size: clamp(1.8rem, 5vw, 2.5rem);
-    font-family: "inte", Arial, Helvetica, sans-serif;
-    letter-spacing: 0.3rem;
-    margin-bottom: 1rem;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  font-family: "Tiktok Sans", Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.3rem;
+  margin-bottom: 1rem;
 }
 
 h3 {
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
-    font-family: "inte", Arial, Helvetica, sans-serif;
-    letter-spacing: 0.2rem;
-    margin-bottom: 0.5rem;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-family: "Tiktok Sans", Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.2rem;
+  margin-bottom: 0.5rem;
 }
 
 p {
-    font-size: clamp(1rem, 2.5vw, 1.3rem);
-    font-family: "Nina", Arial, Helvetica, sans-serif;
-    line-height: 1.6;
-    margin-bottom: 1rem;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-family: "Tiktok Sans", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
 span {
-    font-family: "Nina", Arial, Helvetica, sans-serif;
-    font-style: oblique;
-    margin-left: 0.5rem;
+  font-family: "Story Script", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-style: oblique;
+  margin-left: 0.5rem;
 }
 
 a {
-    font-family: "inte", Arial, Helvetica, sans-serif;
+  font-family: "Anton", Arial, Helvetica, sans-serif;
+  font-weight: 800;
+    letter-spacing: 0.1rem;
+
 }

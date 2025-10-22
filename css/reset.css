@@ -17,12 +17,12 @@ html {
 body {
     background-color: #000;
     color: #fff;
-    width: 90%;
+    width: 80%;
     max-width: 1400px;
     margin: 0 auto;
     min-height: 100vh;
     position: relative;
-    font-family: "Nina", Arial, Helvetica, sans-serif;
+    font-family: "Quicksand", Arial, Helvetica, sans-serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
