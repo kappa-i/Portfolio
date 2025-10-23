@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Story+Script&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactez Gabriel Cappai pour vos projets de d�veloppement web.">
+    <title>Contact - Gabriel Cappai</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+
+<body>
+
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+
+    <nav>
+        <a href="index.html" class="page">Gabriel Cappai.</a>
+        <div class="burger">☰</div>
+        <a href="travaux.html" class="page">Travaux.</a>
+        <a href="apropos.html" class="page">A propos.</a>
+        <a href="contact.html" class="page">Contact.</a>
+    </nav>
+
+    <main class="contact-container">
+        <section class="contact-hero">
+            <h1>Me <span>contacter</span></h1>
+            <p class="subtitle">Travaillons ensemble sur votre prochain projet</p>
+        </section>
+
+        <section class="contact-content">
+            <div class="contact-info">
+                <div class="info-card">
+                    <h2>Restons en contact</h2>
+                    <p>
+                        Vous avez un projet en tête ? Une question à poser ?
+                        N'hésitez pas à me contacter via le formulaire ci-dessous
+                        ou directement par email.
+                    </p>
+                    <div class="contact-details">
+                        <div class="detail-item">
+                            <span class="icon">=></span>
+                            <a href="">Instagram</a>
+                        </div>
+                        <div class="detail-item">
+                            <span class="icon">=></span>
+                            <a href="https://www.linkedin.com/in/gabriel-cappai/" target="_blank" rel="noopener">LinkedIn</a>
+                        </div>
+                        <div class="detail-item">
+                            <span class="icon">=></span>
+                            <a href="https://github.com/kappa-i" target="_blank" rel="noopener">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nom complet</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            required
+                            minlength="2"
+                            maxlength="50"
+                            pattern="[a-zA-ZÀ-ÿ\s'\-]+"
+                            placeholder="Votre nom"
+                            title="Le nom doit contenir entre 2 et 50 caractères (lettres uniquement)"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            maxlength="100"
+                            placeholder="votre@email.com"
+                            title="Veuillez entrer une adresse email valide"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Sujet</label>
+                        <input
+                            type="text"
+                            id="subject"
+                            name="subject"
+                            required
+                            minlength="3"
+                            maxlength="100"
+                            placeholder="L'objet de votre message"
+                            title="Le sujet doit contenir entre 3 et 100 caractères"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="6"
+                            required
+                            minlength="10"
+                            maxlength="2000"
+                            placeholder="Votre message..."
+                            title="Le message doit contenir entre 10 et 2000 caractères"
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-text">Envoyer</span>
+                        <span class="btn-loader" style="display: none;">�</span>
+                    </button>
+
+                    <div class="form-message" id="formMessage"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/header.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+
+</body>
+
+</html>
