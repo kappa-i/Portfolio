@@ -29,53 +29,81 @@
         <a href="contact.html" class="page">Contact.</a>
     </nav>
 
-    <h1 class="titre-travaux">Mes <span>Projets</span></h1>
+    <main class="travaux-container">
+        <section class="travaux-hero">
+            <h1>Mes <span>Projets</span></h1>
+            <p class="subtitle">Découvrez mes réalisations web</p>
+        </section>
 
-    
-    <section class="travaux-section">
+        <section class="projets-grid">
 
-        <div class="projet-liste">
-
-
-            <a href="https://crewup.ch" class="projet-item">
-                <img src="img/projets/CrewUp/Annonces.webp" alt="Aperçu du projet CrewUp" loading="lazy">
-                <div class="projet-info">
-                    <h2>Gestion d'événements sportifs</h2>
+            <article class="projet-card">
+                <div class="projet-image-wrapper">
+                    <img src="img/projets/CrewUp/Annonces.webp" alt="Aperçu du projet CrewUp" loading="lazy">
+                    <div class="projet-overlay">
+                        <span class="projet-badge">Web App</span>
+                    </div>
                 </div>
-            </a>
-
-            <a href="projet-crewup.html" class="projet-item">
-                <img src="img/projets/CrewUp/Annonces.webp" alt="Aperçu du projet CrewUp" loading="lazy">
-                <div class="projet-info">
-                    <h2>Gestion d'événements sportifs</h2>
+                <div class="projet-content">
+                    <h2>CrewUp</h2>
+                    <p class="projet-description">Plateforme de gestion d'événements sportifs permettant aux utilisateurs de créer, rejoindre et organiser des activités sportives en groupe.</p>
+                    <div class="projet-technologies">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">MySQL</span>
+                    </div>
+                    <div class="projet-links">
+                        <a href="https://crewup.ch" target="_blank" rel="noopener" class="btn-primary">Voir le site</a>
+                        <a href="projet-crewup.html" class="btn-secondary">Plus de détails</a>
+                    </div>
                 </div>
-            </a>
+            </article>
 
-            <a href="projet-crewup.html" class="projet-item">
-                <img src="img/projets/CrewUp/Annonces.webp" alt="Aperçu du projet CrewUp" loading="lazy">
-                <div class="projet-info">
-                    <h2>Gestion d'événements sportifs</h2>
+            <article class="projet-card">
+                <div class="projet-image-wrapper">
+                    <img src="img/projets/Ecomm/torrecoffee.webp" alt="Aperçu du projet 2" loading="lazy">
+                    <div class="projet-overlay">
+                        <span class="projet-badge">E-comm</span>
+                    </div>
                 </div>
-            </a>
-
-            <a href="projet-crewup.html" class="projet-item">
-                <img src="img/projets/CrewUp/Annonces.webp" alt="Aperçu du projet CrewUp" loading="lazy">
-                <div class="projet-info">
-                    <h2>Gestion d'événements sportifs</h2>
+                <div class="projet-content">
+                    <h2>Torrecoffee</h2>
+                    <p class="projet-description">Site e-commerce dédié au café regroupant des produits, des articles Amazon et des créations personnalisées en print on demand pour les passionnés de café !</p>
+                    <div class="projet-technologies">
+                        <span class="tech-tag">WordPress</span>
+                    </div>
+                    <div class="projet-links">
+                        <a href="https://torrecoffee.ch/" class="btn-primary">Voir le site</a>
+                        <a href="#" class="btn-secondary">Plus de détails</a>
+                    </div>
                 </div>
-            </a>
+            </article>
 
-            <a href="projet-crewup.html" class="projet-item">
-                <img src="img/projets/CrewUp/Annonces.webp" alt="Aperçu du projet CrewUp" loading="lazy">
-                <div class="projet-info">
-                    <h2>Gestion d'événements sportifs</h2>
+            <article class="projet-card">
+                <div class="projet-image-wrapper">
+                    <img src="img/projets/CrewUp/Annonces.webp" alt="Aperçu du projet 3" loading="lazy">
+                    <div class="projet-overlay">
+                        <span class="projet-badge">E-commerce</span>
+                    </div>
                 </div>
-            </a>
+                <div class="projet-content">
+                    <h2>Projet 3</h2>
+                    <p class="projet-description">Description de votre troisième projet. Mettez en avant les fonctionnalités clés et la valeur ajoutée.</p>
+                    <div class="projet-technologies">
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Stripe</span>
+                    </div>
+                    <div class="projet-links">
+                        <a href="#" class="btn-primary">Voir le site</a>
+                        <a href="#" class="btn-secondary">Plus de détails</a>
+                    </div>
+                </div>
+            </article>
 
-
-
-        </div>
-    </section>
+        </section>
+    </main>
 
     <script src="js/header.js"></script>
     <script src="js/main.js"></script>
