@@ -21,6 +21,10 @@ nav{
     align-items: center;
 }
 
+.navTravaux{
+    margin: 0 0 5rem 0;
+}
+
 a.page{
     text-decoration: none;
     padding: 2rem;

@@ -46,7 +46,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="bg bg2"></div>
     <div class="bg bg3"></div>
 
-    <nav>
+    <nav class="navTravaux">
         <a href="index.html" class="page">Gabriel Cappai.</a>
         <div class="burger">☰</div>
         <a href="travaux.html" class="page">Travaux.</a>
@@ -55,21 +55,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </nav>
 
     <main class="travaux-container">
-        <section class="travaux-hero">
-            <h1>Mes <span>Projets</span></h1>
-            <p class="subtitle">Découvrez mes réalisations web</p>
-        </section>
 
-        <section class="projets-grid">
-
-            <article class="projet-card">
-                <div class="projet-image-wrapper">
-                    <img src="img/projets/CrewUp/Annonces.webp" alt="Aperçu du projet CrewUp" loading="lazy">
-                    <div class="projet-overlay">
-                        <span class="projet-badge">Web App</span>
-                    </div>
-                </div>
-                <div class="projet-content">
+        <!-- PROJET 1 -->
+        <section class="projet-section" data-projet="CrewUp">
+            <div class="projet-bg">
+                <img src="img/projets/CrewUp/Annonces.webp" alt="Aperçu du projet CrewUp">
+            </div>
+            <div class="projet-overlay"></div>
+            <div class="projet-info">
+                <div class="projet-content-wrapper">
+                    <span class="projet-badge">Web App</span>
                     <h2>CrewUp</h2>
                     <p class="projet-description">Plateforme de gestion d'événements sportifs permettant aux utilisateurs de créer, rejoindre et organiser des activités sportives en groupe.</p>
                     <div class="projet-technologies">
@@ -83,36 +78,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <a href="projet-crewup.html" class="btn-secondary">Plus de détails</a>
                     </div>
                 </div>
-            </article>
+            </div>
+        </section>
 
-            <article class="projet-card">
-                <div class="projet-image-wrapper">
-                    <img src="img/projets/Ecomm/torrecoffee.webp" alt="Aperçu du projet 2" loading="lazy">
-                    <div class="projet-overlay">
-                        <span class="projet-badge">E-comm</span>
-                    </div>
-                </div>
-                <div class="projet-content">
+        <!-- PROJET 2 -->
+        <section class="projet-section" data-projet="Torrecoffee">
+            <div class="projet-bg">
+                <img src="img/projets/Ecomm/torrecoffee.webp" alt="Aperçu du projet Torrecoffee">
+            </div>
+            <div class="projet-overlay"></div>
+            <div class="projet-info">
+                <div class="projet-content-wrapper">
+                    <span class="projet-badge">E-comm</span>
                     <h2>Torrecoffee</h2>
                     <p class="projet-description">Site e-commerce dédié au café regroupant des produits, des articles Amazon et des créations personnalisées en print on demand pour les passionnés de café !</p>
                     <div class="projet-technologies">
                         <span class="tech-tag">WordPress</span>
                     </div>
                     <div class="projet-links">
-                        <a href="https://torrecoffee.ch/" class="btn-primary">Voir le site</a>
+                        <a href="https://torrecoffee.ch/" target="_blank" rel="noopener" class="btn-primary">Voir le site</a>
                         <a href="#" class="btn-secondary">Plus de détails</a>
                     </div>
                 </div>
-            </article>
+            </div>
+        </section>
 
-            <article class="projet-card">
-                <div class="projet-image-wrapper">
-                    <img src="img/projets/CrewUp/Annonces.webp" alt="Aperçu du projet 3" loading="lazy">
-                    <div class="projet-overlay">
-                        <span class="projet-badge">E-commerce</span>
-                    </div>
-                </div>
-                <div class="projet-content">
+        <!-- PROJET 3 -->
+        <section class="projet-section" data-projet="Projet3">
+            <div class="projet-bg">
+                <img src="img/projets/CrewUp/Annonces.webp" alt="Aperçu du projet 3">
+            </div>
+            <div class="projet-overlay"></div>
+            <div class="projet-info">
+                <div class="projet-content-wrapper">
+                    <span class="projet-badge">E-commerce</span>
                     <h2>Projet 3</h2>
                     <p class="projet-description">Description de votre troisième projet. Mettez en avant les fonctionnalités clés et la valeur ajoutée.</p>
                     <div class="projet-technologies">
@@ -125,11 +124,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <a href="#" class="btn-secondary">Plus de détails</a>
                     </div>
                 </div>
-            </article>
-
+            </div>
         </section>
+
     </main>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/travaux.js"></script>
     <script src="js/header.js"></script>
     <script src="js/main.js"></script>
 

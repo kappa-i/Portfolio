@@ -1,134 +1,84 @@
 /* ========================================
-   TRAVAUX PAGE - MODERN ELEGANT STYLE
+   TRAVAUX PAGE - SCROLL ANIMATION
    ======================================== */
 
+/* Reset container for travaux page */
 .travaux-container {
-    min-height: 100vh;
-    padding: 120px 40px 80px;
-    max-width: 1600px;
-    margin: 0 auto;
-}
-
-/* ========================================
-   HERO SECTION
-   ======================================== */
-.travaux-hero {
-    text-align: center;
-    margin-bottom: 100px;
-    animation: fadeInUp 1s ease;
-}
-
-.travaux-hero h1 {
-    font-size: clamp(3rem, 8vw, 6rem);
-    font-family: 'Anton', sans-serif;
-    color: #fff;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.travaux-hero h1 span {
-    color: #00d4ff;
-    display: inline-block;
-    animation: glow 2s ease-in-out infinite;
-}
-
-.travaux-hero .subtitle {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.7);
-    font-family: 'TikTok Sans', sans-serif;
-}
-
-/* ========================================
-   PROJETS GRID
-   ======================================== */
-.projets-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 120px;
-    animation: fadeIn 1.2s ease;
-}
-
-/* ========================================
-   PROJET CARD - FLOATING GLASS DESIGN
-   ======================================== */
-.projet-card {
-    position: relative;
-    opacity: 0;
-    animation: slideInUp 0.8s ease forwards;
-    border-radius: 24px;
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-
-.projet-card:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.projet-card:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.projet-card:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-.projet-card:nth-child(4) {
-    animation-delay: 0.4s;
-}
-
-/* ========================================
-   IMAGE WRAPPER - FULL WIDTH WITH OVERLAY
-   ======================================== */
-.projet-image-wrapper {
-    position: relative;
     width: 100%;
-    height: 500px;
+    max-width: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* ========================================
+   PROJET SECTIONS - FULL SCREEN
+   ======================================== */
+.projet-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
-    transition: all 0.6s ease;
+    margin-left: calc((100vw - 100%) / -2);
+    margin-right: calc((100vw - 100%) / -2);
 }
 
-.projet-image-wrapper::after {
-    content: '';
+/* ========================================
+   BACKGROUND IMAGE - FULL VIEWPORT
+   ======================================== */
+.projet-bg {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 0.2) 0%,
-        transparent 50%
-    );
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: 1;
-    transition: opacity 0.6s ease;
 }
 
-.projet-card:hover .projet-image-wrapper::after {
-    opacity: 0.5;
-}
-
-.projet-image-wrapper img {
+.projet-bg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+    object-position: center;
 }
 
-
 /* ========================================
-   OVERLAY & BADGE
+   OVERLAY - DARKENING EFFECT
    ======================================== */
 .projet-overlay {
     position: absolute;
-    top: 30px;
-    left: 30px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
     z-index: 2;
-    pointer-events: none;
+    transition: background 0.3s ease;
 }
 
+/* ========================================
+   PROJECT INFO - SLIDES UP FROM BOTTOM
+   ======================================== */
+.projet-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    opacity: 0;
+    transform: translateY(100px);
+}
+
+.projet-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+/* ========================================
+   BADGE
+   ======================================== */
 .projet-badge {
+    display: inline-block;
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(20px);
     color: #fff;
@@ -140,45 +90,32 @@
     letter-spacing: 2px;
     font-weight: 600;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    transition: all 0.4s ease;
-}
-
-.projet-card:hover .projet-badge {
-    background: rgba(255, 255, 255, 0.25);
-    transform: translateY(-3px);
+    margin-bottom: 20px;
 }
 
 /* ========================================
-   CONTENT SECTION - GLASSMORPHISM CARD
+   TITLE
    ======================================== */
-.projet-content {
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(20px);
-    padding: 45px;
-    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.projet-card:hover .projet-content {
-    background: rgba(0, 0, 0, 0.35);
-}
-
-.projet-content h2 {
-    font-size: 2.2rem;
+.projet-info h2 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-family: 'Anton', sans-serif;
     color: #fff;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    line-height: 1.2;
+    letter-spacing: 2px;
+    line-height: 1.1;
 }
 
+/* ========================================
+   DESCRIPTION
+   ======================================== */
 .projet-description {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.9);
     font-family: 'TikTok Sans', sans-serif;
     margin-bottom: 25px;
+    max-width: 700px;
 }
 
 /* ========================================
@@ -195,24 +132,23 @@
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     color: rgba(255, 255, 255, 0.9);
-    padding: 8px 16px;
+    padding: 8px 18px;
     border-radius: 12px;
     font-family: 'TikTok Sans', sans-serif;
     font-size: 0.85rem;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
     font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 .tech-tag:hover {
     background: rgba(255, 255, 255, 0.2);
     border-color: rgba(255, 255, 255, 0.4);
     transform: translateY(-2px);
-    color: #fff;
 }
 
 /* ========================================
-   PROJECT LINKS / BUTTONS
+   BUTTONS
    ======================================== */
 .projet-links {
     display: flex;
@@ -231,7 +167,6 @@
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     font-size: 0.85rem;
     display: inline-block;
-    position: relative;
     font-weight: 600;
 }
 
@@ -263,121 +198,32 @@
 }
 
 /* ========================================
-   ANIMATIONS
-   ======================================== */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideInUp {
-    from {
-        opacity: 0;
-        transform: translateY(60px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes glow {
-    0%, 100% {
-        text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
-    }
-    50% {
-        text-shadow: 0 0 30px rgba(0, 212, 255, 0.8);
-    }
-}
-
-/* ========================================
-   RESPONSIVE - TABLET (< 1024px)
+   RESPONSIVE - TABLET
    ======================================== */
 @media (max-width: 1024px) {
-    .travaux-container {
-        padding: 100px 30px 60px;
+    .projet-content-wrapper {
+        padding: 50px 30px;
     }
 
-    .travaux-hero {
-        margin-bottom: 80px;
-    }
-
-    .projets-grid {
-        gap: 100px;
-    }
-
-    .projet-image-wrapper {
-        height: 450px;
-    }
-
-    .projet-content {
-        padding: 35px;
-    }
-
-    .projet-content h2 {
-        font-size: 1.9rem;
-    }
-}
-
-/* ========================================
-   RESPONSIVE - MOBILE (< 768px)
-   ======================================== */
-@media (max-width: 768px) {
-    .travaux-container {
-        padding: 80px 20px 40px;
-    }
-
-    .travaux-hero h1 {
+    .projet-info h2 {
         font-size: 3rem;
     }
 
-    .travaux-hero {
-        margin-bottom: 60px;
+    .projet-description {
+        font-size: 1rem;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE
+   ======================================== */
+@media (max-width: 768px) {
+    .projet-content-wrapper {
+        padding: 40px 25px;
     }
 
-    .projets-grid {
-        gap: 80px;
-    }
-
-    .projet-image-wrapper {
-        height: 400px;
-    }
-
-    .projet-overlay {
-        top: 20px;
-        left: 20px;
-    }
-
-    .projet-badge {
-        font-size: 0.75rem;
-        padding: 8px 18px;
-    }
-
-    .projet-content {
-        padding: 30px;
-    }
-
-    .projet-card {
-        border-radius: 20px;
-    }
-
-    .projet-content h2 {
-        font-size: 1.6rem;
+    .projet-info h2 {
+        font-size: 2.5rem;
     }
 
     .projet-description {
@@ -385,9 +231,9 @@
         line-height: 1.6;
     }
 
-    .projet-technologies {
-        gap: 8px;
-        margin-bottom: 25px;
+    .projet-badge {
+        font-size: 0.75rem;
+        padding: 8px 18px;
     }
 
     .tech-tag {
@@ -403,36 +249,19 @@
     .btn-secondary {
         width: 100%;
         text-align: center;
-        padding: 13px 28px;
     }
 }
 
 /* ========================================
-   RESPONSIVE - SMALL MOBILE (< 480px)
+   RESPONSIVE - SMALL MOBILE
    ======================================== */
 @media (max-width: 480px) {
-    .travaux-container {
-        padding: 70px 15px 30px;
+    .projet-content-wrapper {
+        padding: 30px 20px;
     }
 
-    .projets-grid {
-        gap: 60px;
-    }
-
-    .projet-card {
-        border-radius: 16px;
-    }
-
-    .projet-image-wrapper {
-        height: 300px;
-    }
-
-    .projet-content {
-        padding: 25px;
-    }
-
-    .projet-content h2 {
-        font-size: 1.4rem;
+    .projet-info h2 {
+        font-size: 2rem;
     }
 
     .projet-description {
