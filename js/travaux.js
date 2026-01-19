@@ -5,15 +5,30 @@ window.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.projet-section');
 
     sections.forEach((section, index) => {
-        const overlay = section.querySelector('.projet-overlay');
+        const projetBg = section.querySelector('.projet-bg');
         const info = section.querySelector('.projet-info');
+
+        // Créer un overlay dynamiquement
+        const overlay = document.createElement('div');
+        overlay.style.cssText = `
+            position: absolute;
+            top: 2.5%;
+            left: 2.5%;
+            width: 95%;
+            height: 95%;
+            background: rgba(0, 0, 0, 0.6);
+            pointer-events: none;
+            border-radius: 20px;
+            opacity: 0;
+        `;
+        projetBg.appendChild(overlay);
 
         // Create timeline with ScrollTrigger pin
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: section,
                 start: "top top",
-                end: "+=1000",  // Pin duration in pixels
+                end: "+=1000",
                 pin: true,
                 scrub: 1,
                 anticipatePin: 1,
@@ -21,9 +36,9 @@ window.addEventListener('DOMContentLoaded', () => {
         });
 
         // ANIMATION SEQUENCE:
-        // 1. Darken the overlay
+        // 1. Fade in overlay from transparent to opaque
         tl.to(overlay, {
-            background: "rgba(0, 0, 0, 0.6)",
+            opacity: 1,
             duration: 0.3,
             ease: "power2.inOut"
         }, 0)
