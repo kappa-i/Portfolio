@@ -7,12 +7,12 @@
    COLOR PALETTE - COFFEE THEME
    ======================================== */
 :root {
-    --torrecoffee-primary: #8B4513;      /* Saddle Brown - café */
-    --torrecoffee-secondary: #3e3127;    /* Chocolate - caramel */
-    --torrecoffee-accent: #DEB887;       /* Burlywood - beige doré */
-    --torrecoffee-light: #F5DEB3;        /* Wheat - crème */
-    --torrecoffee-dark: #e2a259;         /* Dark brown - expresso */
-    --torrecoffee-green: #556B2F;        /* Dark olive green - vert italien */
+    --torrecoffee-primary: #8b6b13;     
+    --torrecoffee-secondary: #deb887;    
+    --torrecoffee-accent: #DEB887;       
+    --torrecoffee-light: #F5DEB3;      
+    --torrecoffee-dark: #e2a259;     
+    --torrecoffee-green: #556B2F;     
 }
 
 /* ========================================
